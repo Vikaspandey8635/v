@@ -1,0 +1,165 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="tabel-page">
+      <div class="title-bar">
+        <h2>My Profile</h2>
+      </div>
+      <mat-tab-group>
+        <mat-tab label="Profile">
+          <div class="card">
+            <div class="card-body">
+              <div class="profile-content">
+                <div class="prof-upload">
+                  <figure>
+                    <img
+                    [src]="adminProfileData?.image"
+                    onerror="this.src='assets/images/profile.jpeg'"
+                    />
+                  </figure>
+                </div>
+                <div class="prof-data">
+                  <ul>
+                    <li>
+                      <h3>Name</h3>
+                      <p>{{ adminProfileData?.name ? adminProfileData.name : '--' }}</p>
+                    </li>
+                    <li>
+                      <h3>Phone Number</h3>
+                      <p>{{ adminProfileData?.phone ? adminProfileData.phone : '--' }}</p>
+                    </li>
+                    <li>
+                      <h3>Email</h3>
+                      <p>{{ adminProfileData?.email ? adminProfileData.email : '--' }}</p>
+                    </li>
+                    <li>
+                      <h3>Address</h3>
+                      <p>
+                        {{ adminProfileData?.address ? adminProfileData.address : '--' }}
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+              <!-- <form>
+                <div class="form_feilds">
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        placeholder="Email Address"
+                        value=""
+                        class="form_control"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        placeholder="Phone Number"
+                        value=""
+                        class="form_control"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+              </form>
+              <div class="update">
+                <button class="btn btn-primary">Update</button>
+              </div> -->
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Edit Profile">
+          <div class="card">
+            <div class="card-body">
+              <form [formGroup]="profileForm" (ngSubmit)="onSubmit()">
+                <div class="profile-upload">
+                  <div class="upload-img">
+                    <figure>
+                      <img
+                      [src]="adminProfileData?.image"
+                      onerror="this.src='assets/images/profile.jpeg'"
+                      />
+                    </figure>
+                    <div class="uploadfile">
+                      <input type="file" id="myfile" name="myfile" (change)="onFileChange($event)" />
+                    </div>
+                    <div class="hover-plus">
+                      <i aria-hidden="true" class="fa fa-pencil"></i>
+                    </div>
+                  </div>
+                </div>
+              <mat-error *ngIf="profileForm.controls['image'].hasError('required') && submitted">Image is required</mat-error>
+                <div class="form_feilds">
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        placeholder="Name"
+                        class="form_control"
+                        formControlName="name"
+                      />
+                      <mat-error>Name is required.</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        placeholder="Country Code"
+                        class="form_control"
+                        formControlName="countryCode"
+                        type="number"
+                      />
+                      <mat-error>Country Code is required.</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        placeholder="Phone Number"
+                        class="form_control"
+                        formControlName="phone"
+                        type="number"
+                      />
+                      <mat-error>Phone is required.</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        placeholder="Email"
+                        class="form_control"
+                        formControlName="email"
+                      />
+                      <mat-error *ngIf="profileForm.controls['email'].hasError('required')">Email is required</mat-error>
+                      <mat-error *ngIf="profileForm.controls['email'].hasError('email')">Please Enter a valid Email.</mat-error>
+                    </mat-form-field>
+                  </div>
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        placeholder="Address"
+                        class="form_control"
+                        formControlName="address"
+                      />
+                      <mat-error>Address is required.</mat-error>
+                    </mat-form-field>
+                  </div>
+                </div>
+
+                <div class="update">
+                  <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

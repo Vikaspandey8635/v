@@ -1,0 +1,116 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="dashboard-page">
+      <div class="title-bar">
+        <h2>Analytics</h2>
+      </div>
+      <div class="dash-cards">
+        <ul class="dash_end">
+          <li>
+            <div class="report-box" routerLink="/pages/users/list">
+              <div class="rb-left">
+                <i class="fa fa-user" aria-hidden="true"></i>
+              </div>
+              <div class="rb-right">
+                <p>Total Users <span>1000</span></p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="report-box">
+              <div class="rb-right">
+                <div class="rb-left">
+                  <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+                <p>Total Payment<span>$0.00</span></p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="report-box">
+              <div class="rb-right">
+                <div class="rb-left">
+                  <i class="fa fa-usd" aria-hidden="true"></i>
+                </div>
+                <p>Total Revenue <span>$5500</span></p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+      <div class="driver-customer">
+        <div class="user">
+          <div class="card">
+            <div class="card-body">
+              <div class="cd-header">
+                <h5>Total Users</h5>
+                <div class="dropselect">
+                  <select name="" id="">
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="customer">
+                <div
+                  echarts
+                  [options]="option"
+                  [initOpts]="initOpts"
+                  class="demo-chart"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="user">
+          <div class="card">
+            <div class="card-body">
+              <div class="cd-header">
+                <h5>Total payments</h5>
+                <div class="dropselect">
+                  <select name="" id="">
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="customer">
+                <div
+                  echarts
+                  [options]="optionPie"
+                  [initOpts]="initOpts"
+                  class="demo-chart"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="driver-customer">
+        <div class="user">
+          <div class="card">
+            <div class="card-body">
+              <div class="cd-header">
+                <h5>Total Revenue</h5>
+                <div class="dropselect">
+                  <select name="" id="">
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                  </select>
+                </div>
+              </div>
+              <div class="customer">
+                <div
+                  echarts
+                  [options]="optionPie"
+                  [initOpts]="initOpts"
+                  class="demo-chart"
+                ></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

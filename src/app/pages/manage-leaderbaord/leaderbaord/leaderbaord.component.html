@@ -1,0 +1,67 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="dashboard-page">
+      <div class="title-bar">
+        <h2>Manage Leaderbaord</h2>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="filter_sec">
+            <div class="filter_lft"></div>
+          </div>
+        </div>
+        <div class="reward">
+          <div class="rank text-center">
+            <div class="top">
+              <h4>#2</h4>
+              <figure>
+                <img src="{{topLeaderItem[1]?.image}}" alt="" />
+              </figure>
+            </div>
+            <p>{{topLeaderItem[1]?.firstName}} {{topLeaderItem[1]?.lastName}}<span>{{topLeaderItem[1]?.points}}</span></p>
+          </div>
+          <div class="rank text-center">
+            <div class="top cntr">
+              <h2>#1</h2>
+              <figure>
+                <img src="{{topLeaderItem[0]?.image}}" alt="" />
+              </figure>
+            </div>
+           
+            <p>{{topLeaderItem[0]?.firstName}} {{topLeaderItem[0]?.lastName}}<span>{{topLeaderItem[0]?.points}}</span></p>
+          </div>
+          <div class="rank text-center">
+            <div class="top">
+              <h4>#3</h4>
+              <figure>
+                <img src="{{topLeaderItem[2]?.image}}" alt="" />
+              </figure>
+            </div>
+           
+            <p>{{topLeaderItem[2]?.firstName}} {{topLeaderItem[2]?.lastName}}<span>{{topLeaderItem[2]?.points}}</span></p>
+          </div>
+        </div>
+        <div
+          class="m-auto pt-4 sr-wise w-75"
+          style="margin-top: 30px !important; margin: auto; width: 50%"
+        >
+          <div class="reward-rank" *ngFor="let item of topLeaderItem;let i=index" >
+            <div class="lft">
+              <h4>#{{i+1}}</h4>
+              <figure>
+                <img src="{{item?.image}}" alt="" />
+              </figure>
+              <p class="text-white">{{item?.firstName}} {{item?.lastName}} </p>
+            </div>
+            <div class="ryt">
+              <figure>
+                <img src="assets/images/coin.svg" alt="" />
+              </figure>
+              <span>{{item?.points}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+.login_page {
+  position: relative;
+  height: 100vh;
+  background: url("../../../assets/images/bg-1.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .l-form {
+    background: #fff;
+    box-shadow: 1px 0 20px rgb(0 0 0 / 5%);
+    border: none;
+    width: 25%;
+    padding: 40px;
+    border-radius: 8px;
+    .logo {
+      figure {
+        width: 130px;
+        margin: 0 auto;
+      }
+    }
+    .form_grup {
+      width: 94%;
+      padding-bottom: 20px;
+    }
+  }
+  .forgot-pswd {
+    display: flex;
+    justify-content: end;
+    cursor: pointer;
+    margin-bottom: 20px;
+  }
+  .save-btn {
+    display: flex;
+    justify-content: center;
+  }
+}

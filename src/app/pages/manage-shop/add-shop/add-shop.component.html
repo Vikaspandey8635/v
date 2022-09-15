@@ -1,0 +1,82 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="dashboard-page">
+      <div class="title-bar">
+        <h2>{{type|titlecase}} Shop</h2>
+      </div>
+      <div style="text-align: right">
+        <button
+          class="btn btn-primary"
+          routerLink="/manageShop"
+          style="margin-bottom: 20px"
+        >
+          Back
+        </button>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="addShop" (ngSubmit)="Submit_shop()">
+            <div class="profile-upload">
+              <div class="upload-img">
+                <figure><img src="assets/images/profile.jpeg" /></figure>
+                <div class="uploadfile">
+                  <input type="file" id="myfile" name="myfile" />
+                </div>
+                <div class="hover-plus">
+                  <i aria-hidden="true" class="fa fa-pencil"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form_feilds">
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    type="number"
+                    placeholder="Coins"
+                   
+                    class="form_control"
+                    formcontrolName="Coins"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="Assets"
+                     
+                    class="form_control"
+                    formcontrolName="Assets"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill" class="select">
+                  <mat-select placeholder="skins" formControlName="skins">
+                    <mat-option value="User 1"> User 1 </mat-option>
+                    <mat-option value="User 2"> User 2 </mat-option>
+                    <mat-option value="User 3"> User 3 </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill" class="select">
+                  <mat-select placeholder="Music" formControlName="Music">
+                    <mat-option value="User 1"> User 1 </mat-option>
+                    <mat-option value="User 2"> User 2 </mat-option>
+                    <mat-option value="User 3"> User 3 </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              
+            </div>
+          </form>
+          <div class="submit">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

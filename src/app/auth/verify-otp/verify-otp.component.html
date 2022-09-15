@@ -1,0 +1,52 @@
+<div class="OTP_page">
+    <div class="l-form">
+      <div class="logo">
+        <figure>
+          <img src="assets/images/logo.svg" />
+        </figure>
+      </div>
+  
+      <form [formGroup]="verify_Otp" (ngSubmit)="submitOtp()">
+          <!-- <div class="form_grup"> 
+           <mat-label>Email</mat-label>
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              class="form_control"
+              type="email"
+              disabled
+              placeholder="Email Address"
+              formControlName="key"
+            />
+            <span style="color:red" *ngIf="key && key.invalid && key.touched"> <small> Please fill valid Email </small></span>
+          </mat-form-field>
+        </div>  -->
+        <div class="form_grup">
+          <mat-label>OTP</mat-label>
+          <mat-form-field appearance="fill">
+            <input
+              matInput
+              class="form_control"
+              type="number"
+              placeholder="Enter OTP"
+              formControlName="code"
+            />
+            <span style="color:red" *ngIf="code && code.invalid && code.touched"> <small> OTP is required. </small></span>
+  
+          </mat-form-field>
+        </div>
+     
+     
+        <!-- <div class="forgot-pswd">
+          <p routerLink="/auth/forgot">Forgot Password</p>
+          
+        </div> -->
+        <div class="save-btn">
+          <button type="submit" class="btn btn-primary" >
+            Submit
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+   

@@ -1,0 +1,107 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="dashboard-page">
+      <div class="title-bar">
+        <h2>Manage Environment</h2>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="filter_sec">
+            <div class="filter_lft">
+              <mat-form-field class="srch" floatLabel="never">
+                <button mat-button matPrefix mat-icon-button>
+                  <mat-icon>search</mat-icon>
+                </button>
+                <input matInput placeholder="Search Here....." />
+              </mat-form-field>
+            </div>
+            <div class="filter_ryt">
+              <button class="btn btn-primary" routerLink="/Gameplay/addGame">
+                Add
+              </button>
+            </div>
+          </div>
+          <div class="tables">
+            <mat-table #table [dataSource]="dataSource" matSort>
+              <!--- Note that these columns can be defined in any order.
+                        The actual rendered columns are set as a property on the row definition" -->
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  ID
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.id }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="Scenario">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Scenario
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.Scenario }}
+                </mat-cell>
+              </ng-container>
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="description">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Description
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.description }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Status
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <mat-slide-toggle></mat-slide-toggle>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Action
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <ul class="action">
+                    <li>
+                      <i
+                        aria-hidden="true"
+                        class="fa fa-pencil"
+                        tabindex="0"
+                        ng-reflect-router-link="/pages/subadmin/subadmin/edit/"
+                        routerLink="/Gameplay/editGame"
+                      ></i>
+                    </li>
+                    <li>
+                      <i
+                        aria-hidden="true"
+                        title="Block"
+                        class="fa fa-trash"
+                      ></i>
+                    </li>
+                    <!-- <li><i class="fa fa-eye" aria-hidden="true"></i></li> -->
+                  </ul>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row
+                *matHeaderRowDef="displayedColumns"
+              ></mat-header-row>
+              <mat-row
+                *matRowDef="let row; columns: displayedColumns"
+              ></mat-row>
+            </mat-table>
+
+            <mat-paginator
+              [pageSizeOptions]="[5, 10, 25, 100]"
+              aria-label="Select page of users"
+            ></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

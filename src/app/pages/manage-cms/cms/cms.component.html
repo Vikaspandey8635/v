@@ -1,0 +1,179 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="tabel-page">
+      <div class="title-bar">
+        <h2>Manage CMS</h2>
+      </div>
+      <mat-tab-group>
+        <mat-tab label="Contact Support">
+          <div class="card">
+            <div class="card-body">
+              <form>
+                <div class="form_feilds">
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        placeholder="Email Address"
+                        value=""
+                        class="form_control"
+                      />
+                    </mat-form-field>
+                  </div>
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        placeholder="Phone Number"
+                        value=""
+                        class="form_control"
+                      />
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="update">
+                  <button class="btn btn-primary" (click)="update('MEMBERSHIP')">
+                    Update
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Terms and conditions">
+          <div class="card">
+            <div class="card-body">
+              <ckeditor
+                [editor]="Editor"
+                [config]="{
+                  toolbar: [
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    'blockQuote'
+                  ]
+                }"
+                data="<p>Hello, world!</p>"
+              >
+              </ckeditor>
+              <div class="update">
+                <button class="btn btn-primary" (click)="update('MEMBERSHIP')">
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Privacy Policy">
+          <div class="card">
+            <div class="card-body">
+              <ckeditor
+                [editor]="Editor"
+                [config]="{
+                  toolbar: [
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    'blockQuote'
+                  ]
+                }"
+                data="<p>Hello, world!</p>"
+              >
+              </ckeditor>
+              <div class="update">
+                <button class="btn btn-primary" (click)="update('MEMBERSHIP')">
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="FAQs">
+          <div class="card">
+            <div class="card-body">
+              <ckeditor
+                [editor]="Editor"
+                [config]="{
+                  toolbar: [
+                    'heading',
+                    '|',
+                    'bold',
+                    'italic',
+                    'link',
+                    'bulletedList',
+                    'numberedList',
+                    'blockQuote'
+                  ]
+                }"
+                data="<p>Hello, world!</p>"
+              >
+              </ckeditor>
+              <div class="update">
+                <button class="btn btn-primary" (click)="update('MEMBERSHIP')">
+                  Update
+                </button>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+        <mat-tab label="Referrals">
+          <div class="card">
+            <div class="card-body">
+              <form [formGroup]="referrals"  (ngSubmit)="submitReferrals()">
+                <div class="form_feilds">
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        type="number"
+                        placeholder="Sender Referrals Amount"
+                        value=""
+                        class="form_control"
+                        formControlName="sender_referral_amt"
+                      />
+                      <span 
+                        class="valide" 
+                        *ngIf="referrals.controls['sender_referral_amt'].hasError('required') && referrals.controls['sender_referral_amt'].touched"> 
+                        This Field is required
+                      </span>
+                    </mat-form-field>
+                  </div>
+                  <div class="form_grup">
+                    <mat-form-field appearance="fill">
+                      <input
+                        matInput
+                        type="number"
+                        placeholder="Reciver Referrals Amount"
+                        value=""
+                        class="form_control"
+                        formControlName="receiver_referral_amt"
+                      />
+                      <span 
+                        class="valide" 
+                        *ngIf="referrals.controls['receiver_referral_amt'].hasError('required') && referrals.controls['receiver_referral_amt'].touched"> 
+                         This Field is required
+                      </span>
+                    </mat-form-field>
+                  </div>
+                </div>
+                <div class="update">
+                  <button type="submit" class="btn btn-primary" >
+                    Update
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

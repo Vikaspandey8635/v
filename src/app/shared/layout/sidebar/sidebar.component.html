@@ -1,0 +1,37 @@
+<div class="logomain">
+    <figure><img src="assets/images/logo.svg" alt="logo"></figure>
+</div>
+<mat-nav-list class="side_ber">
+<div *ngFor="let item of sideBar">
+    <ng-container *ngIf="!item.isSubMenu">
+        <mat-list-item [routerLink]="item.path" >
+            <mat-icon mat-list-icon>{{item.icon}}</mat-icon>
+            <div fxFlex="10"></div>
+            <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+                <h5 class="lead">{{item.text}}</h5>
+            </div>
+        </mat-list-item>
+    </ng-container>
+    <mat-accordion *ngIf="item.isSubMenu">
+        <mat-expansion-panel class="drop_lst_nv">
+            <mat-expansion-panel-header>
+                <mat-panel-title>
+                    <mat-list-item >
+                        <mat-icon mat-list-icon>texture</mat-icon>
+                        <div fxFlex="10"></div>
+                        <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+                            <h5 class="lead">{{item.text}}</h5>
+                        </div>
+                    </mat-list-item>
+                </mat-panel-title>
+            </mat-expansion-panel-header>
+            <mat-list-item *ngFor="let sub of item.subMenuItems">
+                <div *ngIf="sidenavWidth > 6" class="sidenav-item">
+                    <h5 class="lead">{{sub.text}}</h5>
+                </div>
+            </mat-list-item>
+        
+        </mat-expansion-panel>
+    </mat-accordion>
+</div>
+</mat-nav-list>

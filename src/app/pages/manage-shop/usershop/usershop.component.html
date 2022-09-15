@@ -1,0 +1,130 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="dashboard-page">
+      <div class="title-bar">
+        <h2>Manage Shops</h2>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="filter_sec">
+            <div class="filter_lft">
+              <mat-form-field class="srch" floatLabel="never">
+                <button mat-button matPrefix mat-icon-button>
+                  <mat-icon>search</mat-icon>
+                </button>
+                <input matInput placeholder="Search Here....." />
+              </mat-form-field>
+            </div>
+            <div class="filter_ryt">
+              <button class="btn btn-primary" routerLink="/manageShop/shop/add">
+                Add Shop
+              </button>
+            </div>
+          </div>
+          <div class="tables">
+            <mat-table #table [dataSource]="dataSource" matSort>
+              <!--- Note that these columns can be defined in any order.
+                      The actual rendered columns are set as a property on the row definition" -->
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  ID
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element; let i=index">
+                  {{ element.id }}
+                  {{ currentpage*10-10+i+1 }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="image">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  image
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <figure>
+                    <img src="assets/images/profile.jpeg" alt="" />
+                  </figure>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="coins">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Coins
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.coins }}
+                </mat-cell>
+              </ng-container>
+              <!-- Symbol Column -->
+              <ng-container matColumnDef="assets">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Assets
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.assets }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="skins">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Skins
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.skins }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="music">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Music
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.music }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Action
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <ul class="action">
+                    <li>
+                      <i
+                        aria-hidden="true"
+                        class="fa fa-pencil"
+                        tabindex="0"
+                        [routerLink]="['/manageShop/shop/edit/',element._id]"
+                      ></i>
+                    </li>
+                    <li>
+                      <i
+                        aria-hidden="true"
+                        title="Block"
+                        class="fa fa-trash"
+                        (click)="removed(element._id)"
+                      ></i>
+                    </li>
+                    <!-- <li><i class="fa fa-eye" aria-hidden="true"></i></li> -->
+                  </ul>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row
+                *matHeaderRowDef="displayedColumns"
+              ></mat-header-row>
+              <mat-row
+                *matRowDef="let row; columns: displayedColumns"
+              ></mat-row>
+            </mat-table>
+
+            <mat-paginator
+            [length]="userCount"
+            (page)="getPage($event)"
+            [pageSize]="limit"
+            [pageIndex]="pageIndex"
+            [pageSizeOptions]="pageSizeOptions"
+            aria-label="Select page of users"
+            ></mat-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,169 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="dashboard-page">
+      <div class="title-bar">
+        <h2>Manage Users</h2>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <div class="filter_sec">
+            <div class="filter_lft">
+              <!-- <mat-form-field class="srch" floatLabel="never">
+                <button mat-button matPrefix mat-icon-button>
+                  <mat-icon>search</mat-icon>
+                </button>
+                <input matInput [(ngModel)]="searchText" placeholder="Enter Name To Search" name="search" (ngModelChange)="searcfetchSearchOutputh($event)" />
+              </mat-form-field>
+              <button class="btn btn primary" (click)="clear()"> clear</button> -->
+              <app-search (searchOutput)="fetchSearchOutput($event)"></app-search>
+            </div>
+    
+            <div class="filter_ryt">
+              <button class="btn btn-primary" routerLink="/user/addUser">
+                <i class="fa fa-download" aria-hidden="true"></i>&nbsp; Export
+                CSV
+              </button>
+              <!-- <button class="btn btn-primary" routerLink="/user/addUser">
+                Add User
+              </button> -->
+            </div>
+          </div>
+          <div class="tables">
+            <mat-table #table [dataSource]="listUser" matSort>
+              <!--- Note that these columns can be defined in any order.
+                    The actual rendered columns are set as a property on the row definition" -->
+
+              <!-- Position Column -->
+              <ng-container matColumnDef="id">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  ID
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element; let i=index">
+                  {{
+                    currentPage == 1 ? i + 1 : pageSize * (currentPage - 1) + (i + 1)
+                  }}.
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="image">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  image
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <figure>
+                    <img src="{{element.image}}" alt="" />
+                  </figure>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="name">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Name
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.firstName}} {{element.lastName}}
+                </mat-cell>
+              </ng-container>
+              <!-- Symbol Column -->
+              <!-- <ng-container matColumnDef="email">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Email
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.email }}
+                </mat-cell>
+              </ng-container> -->
+              <ng-container matColumnDef="level">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Level
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.levels }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="history">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Purchase History
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <button class="tbl_btn">View</button>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="pay">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Transactions</mat-header-cell
+                >
+                <mat-cell *matCellDef="let element">
+                  <button class="tbl_btn">View</button>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="earn">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Earnings
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.earnings }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="money">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Wallets
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  {{ element.wallet }}
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="status">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Status
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <mat-slide-toggle></mat-slide-toggle>
+                </mat-cell>
+              </ng-container>
+              <ng-container matColumnDef="action">
+                <mat-header-cell *matHeaderCellDef mat-sort-header>
+                  Action
+                </mat-header-cell>
+                <mat-cell *matCellDef="let element">
+                  <ul class="action">
+                    <li>
+                      <i
+                        aria-hidden="true"
+                        class="fa fa-pencil"
+                        tabindex="0"
+                         
+                        [routerLink]="['/user/editUser/',element._id]"
+                      ></i>
+                    </li>
+                    <li>
+                      <i
+                        aria-hidden="true"
+                        title="Block"
+                        class="fa fa-trash"
+                        (click)="onDelete(element._id)"
+                      ></i>
+                    </li>
+                    <!-- <li><i class="fa fa-eye" aria-hidden="true"></i></li> -->
+                  </ul>
+                </mat-cell>
+              </ng-container>
+
+              <mat-header-row
+                *matHeaderRowDef="displayedColumns"
+              ></mat-header-row>
+              <mat-row
+                *matRowDef="let row; columns: displayedColumns"
+              ></mat-row>
+            </mat-table>
+
+            
+            <app-paginator
+              [recordsLength]="recordsLength"
+              [pageSize]="pageSize"
+              (paginationOutput)="fetchOutputPagination($event)"
+            ></app-paginator>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

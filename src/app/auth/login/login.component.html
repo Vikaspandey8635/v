@@ -1,0 +1,65 @@
+<div class="login_page">
+  <div class="l-form">
+    <div class="logo">
+      <figure>
+        <img src="assets/images/logo.svg" />
+      </figure>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="loginUser()">
+      <div class="form_grup">
+        <mat-label>Email</mat-label>
+        <mat-form-field appearance="fill">
+          <input
+            matInput
+            class="form_control"
+            type="email"
+            placeholder="Email Address"
+            formControlName="key"
+          />
+          <span style="color:red" *ngIf="key && key.invalid && key.touched"> <small> Email is required. </small></span>
+        </mat-form-field>
+      </div>
+      <div class="form_grup">
+        <mat-label>Password</mat-label>
+        <mat-form-field appearance="fill">
+          <input
+            matInput
+            class="form_control"
+            type="password"
+            placeholder="Password"
+            formControlName="password"
+          />
+          <span style="color:red" *ngIf="password && password.invalid && password.touched"> <small> Password is required. </small></span>
+
+        </mat-form-field>
+      </div>
+      <!-- <div class="form_feilds">
+                    <div class="form_grup">
+                        <mat-form-field appearance="fill">
+                            <label>Email</label>
+                            <input matInput placeholder="Email"  class="form_control">
+                        </mat-form-field>
+                    </div>
+                    <div class="form_grup ">
+                        <mat-form-field appearance="fill">
+                            <label>Password</label>
+                            <input matInput placeholder="Password"  class="form_control">
+                        </mat-form-field>
+                    </div>
+                </div> -->
+      <div class="forgot-pswd">
+        <p routerLink="/auth/forgot">Forgot Password</p>
+        
+      </div>
+      <div class="save-btn">
+        <button type="submit" class="btn btn-primary" >
+          Submit
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
+<form>
+
+</form>

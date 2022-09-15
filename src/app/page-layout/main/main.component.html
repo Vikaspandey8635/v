@@ -1,0 +1,35 @@
+<mat-sidenav-container fullscreen>
+  <mat-sidenav
+    #sidenav
+    mode="side"
+    class="example-sidenav"
+    [ngStyle]="{ 'width.em': sidenavWidth }"
+    opened="true"
+  >
+    <app-sidebar></app-sidebar>
+  </mat-sidenav>
+  <div class="example-sidenav-content">
+    <!-- <router-outlet></router-outlet> -->
+    <div class="top_header">
+      <mat-icon (click)="sidenav.toggle()" class="sidenav-menu">menu</mat-icon>
+      <div class="top_header_ryt">
+        <i class="fa fa-bell" aria-hidden="true"></i>
+        <figure mat-button [matMenuTriggerFor]="menu">
+          <img
+              [src]="imageSrc"
+              onerror="this.src='assets/images/profile.jpeg'"
+          />
+        </figure>
+        <mat-menu #menu="matMenu" class="dropbox">
+          <ul>
+            <li routerLink="/myprofile/">My Profile</li>
+            <li routerLink="/changePass/">Change Password</li>
+            <li style="padding-bottom: 0px" (click)="onLogout()">Logout</li>
+          </ul>
+        </mat-menu>
+      </div>
+    </div>
+    <router-outlet></router-outlet>
+    <mat-menu #menu="matMenu"> </mat-menu>
+  </div>
+</mat-sidenav-container>

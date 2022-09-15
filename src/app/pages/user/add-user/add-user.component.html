@@ -1,0 +1,108 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="dashboard-page">
+      <div class="title-bar">
+        <h2>Add User</h2>
+      </div>
+      <div style="text-align: right">
+        <button
+          class="btn btn-primary"
+          routerLink="/user/userList"
+          style="margin-bottom: 20px"
+        >
+          Back
+        </button>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="adduser" (ngSubmit)="submit()">
+            <div class="profile-upload">
+              <div class="upload-img">
+                <figure><img src="assets/images/profile.jpeg" /></figure>
+                <div class="uploadfile">
+                  <input type="file" id="myfile" name="myfile" />
+                </div>
+                <div class="hover-plus">
+                  <i aria-hidden="true" class="fa fa-pencil"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form_feilds">
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="Name"
+                    value=""
+                    class="form_control"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="Email"
+                    value=""
+                    class="form_control"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="Level"
+                    value=""
+                    class="form_control"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill" class="select">
+                  <mat-select placeholder="Purchase History">
+                    <mat-option> User 1 </mat-option>
+                    <mat-option> User 2 </mat-option>
+                    <mat-option> User 3 </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill" class="select">
+                  <mat-select placeholder="Transactions">
+                    <mat-option> User 1 </mat-option>
+                    <mat-option> User 2 </mat-option>
+                    <mat-option> User 3 </mat-option>
+                  </mat-select>
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="Earnings"
+                    value=""
+                    class="form_control"
+                  />
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="Wallets"
+                    value=""
+                    class="form_control"
+                  />
+                </mat-form-field>
+              </div>
+            </div>
+          </form>
+          <div class="submit">
+            <button class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

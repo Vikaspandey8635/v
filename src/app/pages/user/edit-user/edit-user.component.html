@@ -1,0 +1,121 @@
+<div id="page-content-wrapper">
+  <div class="container-fluid">
+    <div class="dashboard-page">
+      <div class="title-bar">
+        <h2>Edit User</h2>
+      </div>
+      <div style="text-align: right">
+        <button
+          class="btn btn-primary"
+          routerLink="/user/userList"
+          style="margin-bottom: 20px"
+        >
+          Back
+        </button>
+      </div>
+      <div class="card">
+        <div class="card-body">
+          <form [formGroup]="edituser" (ngSubmit)="update()">
+            <div class="profile-upload"> 
+              <div class="upload-img">
+                <figure>
+                  <img 
+                  [src]="edituser.value.image"
+                  onerror="this.src='assets/images/profile.jpeg'"
+                  />
+                </figure>
+                <div class="uploadfile">
+                  <input 
+                   type="file" 
+                   (change)="onFileChange($event)"
+                  />
+                </div>
+                <div class="hover-plus">
+                  <i aria-hidden="true" class="fa fa-pencil"></i>
+                </div>
+              </div>
+            </div>
+            <div class="form_feilds">
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="first Name"
+                    formControlName="firstName"
+                    class="form_control"
+                  />
+                  <span 
+                    class="valide" 
+                    *ngIf="edituser.controls['firstName'].hasError('required') && edituser.controls['firstName'].touched"> 
+                    This Field is required
+                  </span>
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="Last Name"
+                    formControlName="lastName"
+                    class="form_control"
+                  />
+                  <span 
+                    class="valide" 
+                    *ngIf="edituser.controls['lastName'].hasError('required') && edituser.controls['lastName'].touched"> 
+                    This Field is required
+                  </span>
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="Level"
+                    formControlName="levels"
+                    class="form_control"
+                  />
+                  <span 
+                    class="valide" 
+                    *ngIf="edituser.controls['levels'].hasError('required') && edituser.controls['levels'].touched"> 
+                    This Field is required
+                  </span>
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                  matInput
+                  placeholder="Transactions"
+                  formControlName="transactions"
+                  class="form_control"
+                />
+                <span 
+                    class="valide" 
+                    *ngIf="edituser.controls['transactions'].hasError('required') && edituser.controls['transactions'].touched"> 
+                    This Field is required
+                  </span>
+                </mat-form-field>
+              </div>
+              <div class="form_grup">
+                <mat-form-field appearance="fill">
+                  <input
+                    matInput
+                    placeholder="Earnings"
+                    formControlName="earnings"
+                    class="form_control"
+                  />
+                  <span 
+                    class="valide" 
+                    *ngIf="edituser.controls['earnings'].hasError('required') && edituser.controls['earnings'].touched"> 
+                    This Field is required
+                  </span>
+                </mat-form-field>
+              </div>
+            </div>
+              <button type="submit" class="btn btn-primary" >Update</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
